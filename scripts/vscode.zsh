@@ -146,30 +146,22 @@ main() {
   # Sync settings
   sync_code
   # Extensions
+
+  ## Common
   code_install EditorConfig.EditorConfig
-  code_install akamud.vscode-theme-onelight
-  code_install atian25.copy-syntax
-  code_install streetsidesoftware.code-spell-checker
-  code_install streetsidesoftware.code-spell-checker-ukrainian
-  code_install cdsama.shell-snippets
-  code_install christian-kohler.npm-intellisense
-  code_install christian-kohler.path-intellisense
-  code_install CoenraadS.bracket-pair-colorizer
-  code_install cssho.vscode-svgviewer
-  code_install dbaeumer.vscode-eslint
-  code_install eg2.tslint
-  code_install dunstontc.viml
-  code_install esbenp.prettier-vscode
-  code_install formulahendry.auto-rename-tag
-  code_install jpoissonnier.vscode-styled-components
-  code_install kumar-harsh.graphql-for-vscode
-  code_install msjsdiag.debugger-for-chrome
-  code_install Orta.vscode-jest
-  code_install patbenatar.advanced-new-file
-  code_install robertohuertasm.vscode-icons
   code_install sidneys1.gitconfig
-  code_install wix.vscode-import-cost
+
+  ## Languages
+  code_install ms-python.python
+  code_install mikestead.dotenv
+
+  ## Theme and visual part
   code_install zhuangtongfa.Material-theme
+  code_install pnp.polacode
+  code_install CoenraadS.bracket-pair-colorizer
+  code_install atian25.copy-syntax
+  code_install cssho.vscode-svgviewer
+
   # Finish
   on_finish
 }
