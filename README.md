@@ -13,13 +13,14 @@ There are tons of useful things in here:
 - Automatically closing and deleting of quotes and brackets when you type them.
 - Browser-like substring search for history.
 - [🌺 zplug](https://zplug.sh) for dependency management.
-- Useful [aliases](./lib/aliases.zsh).
+- Useful [aliases](https://github.com/toxicwar/dotfiles/tree/master/lib/aliases.zsh).
 - Git config, global `.gitignore` file and aliases.
 - VSCode settings [syncronization](https://github.com/toxicwar/dotfiles/tree/master/scripts/vscode.zsh).
 - Dotfiles synchronization (`sync.py`) with backup.
 - Restoring old dotfiles (`restore.py`) from backup.
 - A lot of [useful bins](https://github.com/toxicwar/dotfiles/tree/master/bin).
 - `update` script for updating dotfiles, npm, brew, gems, etc.
+- [One Dark theme](https://github.com/anunez/one-dark-iterm)
 
 Missing feature? 🍴 Fork this repo and make it better!
 
