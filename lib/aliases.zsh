@@ -29,11 +29,11 @@ alias q="~ && clear"
 [ -d ~/Dropbox ]              && alias dr='cd ~/Dropbox'
 [ -d ~/Downloads ]            && alias dl='cd ~/Downloads'
 [ -d ~/Desktop ]              && alias dt='cd ~/Desktop'
-[ -d ~/Projects ]             && alias pj='cd ~/Projects'
-[ -d ~/Projects/Forks ]       && alias pjf='cd ~/Projects/Forks'
-[ -d ~/Projects/Job ]         && alias pjj='cd ~/Projects/Job'
-[ -d ~/Projects/Playground ]  && alias pjl='cd ~/Projects/Playground'
-[ -d ~/Projects/Repos ]       && alias pjr='cd ~/Projects/Repos'
+[ -d ~/workspace ]             && alias ws='cd ~/workspace'
+[ -d ~/workspace/forks ]       && alias wsf='cd ~/workspace/forks'
+[ -d ~/workspace/work ]         && alias wsw='cd ~/workspace/work'
+[ -d ~/workspace/personal ]  && alias wsp='cd ~/workspace/personal'
+[ -d ~/workspace/resources ]       && alias wsr='cd ~/workspace/resources'
 
 # Commands Shortcuts
 alias e="$EDITOR"
@@ -49,10 +49,6 @@ alias oo='open .'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-
-# Color conversion
-alias hex2hsl='color.js $1 $2'
-alias hex2rgb='color.js --rgb $1 $2'
 
 # Get Ubuntu Updates, and update npm and its installed packages
 alias update="source $DOTFILES/scripts/update.zsh"
