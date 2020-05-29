@@ -9,6 +9,7 @@ export DOTFILES=${DOTFILES:="$HOME/.dotfiles"}
 
 cd $DOTFILES/scripts
 . ./brew.zsh
+. ./python.zsh
 . ./nodejs.zsh
 . ./vscode.zsh
 cd -

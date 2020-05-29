@@ -81,26 +81,13 @@ configure_npm_init() {
   # Ask required parameters
   info "Configure npm init..."
 
-  # Defaults
-  local name="Denys Dovhan"
-  local email="denysdovhan@gmail.com"
-  local website="http://denysdovhan.com/"
-
-  ask "What is your name? ($name): " && read NAME
-  ask "What is your email? ($email): " && read EMAIL
-  ask "What is your website? ($website): " && read WEBSITE
-
-  # If required parameters are not entered, set them default values
-  : ${NAME:="$name"}
-  : ${EMAIL:="$email"}
-  : ${WEBSITE:="$website"}
+  ask "What is your name?: " && read NAME
+  ask "What is your email?: " && read EMAIL
 
   echo "Author name set as: $NAME"
   npm set init.author.name "$NAME"
   echo "Author email set as: $EMAIL"
   npm set init.author.email "$EMAIL"
-  echo "Author website set as: $WEBSITE"
-  npm set init.author.url "$WEBSITE"
   echo
 
   finish

@@ -100,32 +100,22 @@ main() {
   brew_install coreutils
   brew_install tree
   brew_install wget
-  brew_install yarn
   brew_install tldr
+  brew_install httpie
+  brew_install neovim
   # Desktop applications
-  brew_install cask java
-  brew_install cask ukrainian-typographic-keyboard
   brew_install cask gpg-suite
-  brew_install cask 1password
+  brew_install cask sublime-text
+  brew_install cask clipy
   brew_install cask telegram
   brew_install cask google-chrome
-  brew_install cask firefox
   brew_install cask dropbox
   brew_install cask vlc
   brew_install cask iterm2
-  brew_install cask toggl
   brew_install cask visual-studio-code
-  brew_install cask slack
-  brew_install cask steam
-  brew_install cask transmission
-  brew_install cask handbrake # video converter
-  brew_install cask insomnia
-  # Quick Look plugins
-  brew_install cask qlcolorcode # https://github.com/anthonygelibert/QLColorCode
-  brew_install cask qlstephen # https://github.com/whomwah/qlstephen
-  brew_install cask quicklook-json # https://github.com/sindresorhus/quick-look-plugins
-  brew_install cask qlimagesize # https://github.com/Nyx0uf/qlImageSize
-  brew_install cask webpquicklook # https://github.com/dchest/webp-quicklook
+  # Fonts
+  brew tap homebrew/cask-fonts
+  brew_install cask font-fira-code
   # Finish
   on_finish
 }
