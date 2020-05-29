@@ -2,6 +2,10 @@
 # ~/.zshrc
 #
 
+_exists() {
+  command -v $1 > /dev/null 2>&1
+}
+
 # ------------------------------------------------------------------------------
 # Environment
 # ------------------------------------------------------------------------------
@@ -31,8 +35,13 @@ _extend_path() {
 [[ -d "$HOME/.bin" ]] && _extend_path "$HOME/.bin"
 [[ -d "$DOTFILES/bin" ]] && _extend_path "$DOTFILES/bin"
 [[ -d "$HOME/.npm-global" ]] && _extend_path "$HOME/.npm-global/bin"
-[[ -d "$HOME/.rvm/bin" ]] && _extend_path "$HOME/.rvm/bin"
+[[ -d "$HOME/.local/bin" ]] && _extend_path "$HOME/.local/bin"
 [[ -d "$ZPLUG_BIN" ]] && _extend_path "$ZPLUG_BIN"
+
+# Pyenv init
+if _exists pyenv; then
+  eval "$(pyenv init -)"
+fi
 
 # Extend $NODE_PATH
 if [ -d ~/.npm-global ]; then
@@ -88,9 +97,6 @@ zplug "lib/*", from:oh-my-zsh
 # Oh-My-Zsh plugins
 zplug "plugins/history-substring-search", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
-zplug "plugins/npm", from:oh-my-zsh
-zplug "plugins/yarn", from:oh-my-zsh
-zplug "plugins/nvm", from:oh-my-zsh
 zplug "plugins/sudo", from:oh-my-zsh
 zplug "plugins/extract", from:oh-my-zsh
 zplug "plugins/ssh-agent", from:oh-my-zsh
@@ -102,16 +108,12 @@ zplug "zsh-users/zsh-syntax-highlighting"
 zplug "hlissner/zsh-autopair", defer:2
 
 # Extra
-zplug "lukechilds/zsh-better-npm-completion", defer:2
 zplug "denysdovhan/gitio-zsh", as:command, use:"gitio.zsh", rename-to:"gitio"
 zplug "rauchg/wifi-password", as:command, use:"wifi-password.sh", rename-to:"wifi-password"
+zplug "djui/alias-tips", defer:2
 
 # Spaceship ZSH
-if [[ -d "$HOME/Projects/Repos/spaceship-prompt" ]]; then
-  zplug "$HOME/Projects/Repos/spaceship-prompt", from:local, as:theme, use:"spaceship.zsh"
-else
-  zplug "denysdovhan/spaceship-prompt", as:theme, use:"spaceship.zsh"
-fi
+zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
 
 # Dotfiles
 zplug "$DOTFILES/lib", from:local
@@ -126,3 +128,5 @@ fi
 
 # Then, source plugins and add commands to $PATH
 zplug load
+
+ZSH_HIGHLIGHT_MAXLENGTH=200

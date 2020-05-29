@@ -1,4 +1,4 @@
-# Denys Dovhan’s dotfiles
+# Anton Larkin’s dotfiles
 
 <p align="center">
   <img alt="Spaceship with Hyper and One Dark" src="https://user-images.githubusercontent.com/10276208/36086434-5de52ace-0ff2-11e8-8299-c67f9ab4e9bd.gif" width="980px">
@@ -15,10 +15,10 @@ There are tons of useful things in here:
 - [🌺 zplug](https://zplug.sh) for dependency management.
 - Useful [aliases](./lib/aliases.zsh).
 - Git config, global `.gitignore` file and aliases.
-- VSCode settings [syncronization](https://github.com/denysdovhan/dotfiles/tree/master/setup/atom.sh).
+- VSCode settings [syncronization](https://github.com/toxicwar/dotfiles/tree/master/scripts/vscode.zsh).
 - Dotfiles synchronization (`sync.py`) with backup.
 - Restoring old dotfiles (`restore.py`) from backup.
-- A lot of [useful bins](https://github.com/denysdovhan/dotfiles/tree/master/bin).
+- A lot of [useful bins](https://github.com/toxicwar/dotfiles/tree/master/bin).
 - `update` script for updating dotfiles, npm, brew, gems, etc.
 
 Missing feature? 🍴 Fork this repo and make it better!
@@ -30,13 +30,13 @@ Dotfiles are installed by running one of the following commands in your terminal
 **via `curl`**
 
 ```sh
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/denysdovhan/dotfiles/master/installer.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/toxicwar/dotfiles/master/installer.sh)"
 ```
 
 **via `wget`**
 
 ```sh
-bash -c "$(wget https://raw.githubusercontent.com/denysdovhan/dotfiles/master/installer.sh -O -)"
+bash -c "$(wget https://raw.githubusercontent.com/toxicwar/dotfiles/master/installer.sh -O -)"
 ```
 
 Tell Git who you are using these commands:
@@ -60,16 +60,14 @@ This command will update dotfiles, their dependencies, `brew` or `apt-get` packa
 
 > **Note:** You may put your custom settings into `~/.zshlocal`.
 
-### Projects tree
-
-I suggest you to organize project folder as follows:
+### Workspace tree
 
 ```
-~/Projects
-├── Forks       # for GitHub fork
-├── Job         # for job projects
-├── Playground  # for short-term experiments
-└── Repos       # for long-term projects
+~/workspace
+├── forks       # for GitHub fork
+├── work        # for work projects
+├── personal    # for personal projects
+└── resources   # for short-term experiments
 ```
 
 ### Aliases
@@ -88,10 +86,11 @@ Aliases are gonna make your work fast and enjoyable. See code in `$DOTFILES/lib/
   - **`dr`** → `cd ~/Dropbox`
   - **`dl`** → `cd ~/Downloads`
   - **`dt`** → `cd ~/Desktop`
-  - **`pj`** → `cd ~/Projects`
-  - **`pjr`** → `cd ~/Projects/_Repos`
-  - **`pjf`** → `cd ~/Projects/_Forks`
-  - **`pl`** → `cd ~/Projects/_Playground/`
+  - **`ws`** → `cd ~/workspace`
+  - **`wsw`** → `cd ~/workspace/work`
+  - **`wsp`** → `cd ~/workspace/personal`
+  - **`wsr`** → `cd ~/workspace/resources`
+  - **`wsf`** → `cd ~/workspace/forks`
 - Commands Shortcuts
   - **`e`** → `$EDITOR`
   - **`+x`** → `chmod +x`
@@ -103,9 +102,6 @@ Aliases are gonna make your work fast and enjoyable. See code in `$DOTFILES/lib/
   - **`open <FILE>`** — open file from terminal.
   - **`o <FILE>`** — open file from terminal.
   - **`oo`** — open current folder.
-- Color conversion
-  - **`hex2hsl <[#]dead00> [alpha]`** - convert #hex color to HSL/HSLA. `#dead00` → `hsl(47,99%,44%)`.
-  - **`hex2rgb <[#]dead00> [alpha]`** - convert #hex color to RGB/RGBA. `#dead00` → `rgb(222,173,0)`.
 - Misc
   - **`update`** — get updates (Runs `$DOTFILES/scripts/update.zsh`).
   - **`dotfiles`** — jump quickly into dotfiles folder.
@@ -120,9 +116,6 @@ Aliases are gonna make your work fast and enjoyable. See code in `$DOTFILES/lib/
 These OMZ plugins are included:
 
 - [`git`](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/git) — git aliases and functions.
-- [`npm`](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/npm) — provides completion as well as adding many useful aliases.
-- [`yarn`](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/yarn) — the same as for `npm`, but for `yarn`
-- [`nvm`](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/nvm) — auto-sourcing `nvm`.
 - [`sudo`](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/sudo) — `[Esc] [Esc]` to re-run previous command with sudo.
 - [`extract`](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/extract) — defines a function called `extract` that extracts the archive file you pass it, and it supports a wide variety of archive filetypes.
 - [`ssh-agent`](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/ssh-agent) — automatically starts ssh-agent to set up and load whichever credentials you want for ssh connections.
@@ -132,7 +125,6 @@ These OMZ plugins are included:
 
 Dotfiles also include some functions that will make your life easier. See code in [`bin/`](./bin).
 
-- `color.js` — HTML color converter.
 - `emptytrash` — empty the Trash on all mounted volumes and the main HDD.
 - `git-changelog` — generate changelog based on commit history.
 - `git-cleanup` — removes old Git branches and does other cleanup.
@@ -193,26 +185,14 @@ Dotfiles also include some functions that will make your life easier. See code i
 - **`git-fork <original-author>`** — add remote upstream.
 - **`git-upstream [branch]`** — sync branch with upstream (as default `master`).
 
-## Bash
-
-If you wanna stand on `bash` version of dotfiles, please execute following commands inside the `~/.dotfiles` folder:
-
-```sh
-git checkout bash
-./sync.py
-```
-
-I do not support `bash` version anymore, so if you need fixes or new features, please send me a pull request into `bash` branch. Thank you!
-
 ## Resources
 
 Resources that I used to make these dotfiles better:
 
 - [GitHub ❤ ~/](http://dotfiles.github.com/)
-- [Artem Sapegin’s dotfiles](https://github.com/sapegin/dotfiles)
-- [Mathias’s dotfiles](https://github.com/mathiasbynens/dotfiles)
-- [Yet another cool story about bash prompt](http://habrahabr.ru/company/mailru/blog/145008/)
+- [Denys Dovhan’s dotfiles](https://github.com/denysdovhan/dotfiles)
+- [Nikita Sobolev’s dotfiles](https://github.com/sobolevn/dotfiles)
 
 ## License
 
-MIT © [Denys Dovhan](https://denysdovhan.com)
+MIT © [Anton Larkin](https://anlarkin.com)

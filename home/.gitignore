@@ -1,5 +1,5 @@
 # Compiled Python files
-*.pyc
+*.py[cod]
 
 # Folder view configuration files
 .DS_Store
@@ -10,15 +10,6 @@ Thumbs.db
 
 # Installed NPM modules
 node_modules
-npm-debug.log
-yarn-error.log
 
-# Installed Bower packages
-bower_components
-
-# Editor`s configs
-*.sublime-*
-.tern-project
-
-# Ignore Westorm files
+# Ignore idea files
 .idea
