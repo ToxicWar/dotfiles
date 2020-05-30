@@ -90,6 +90,15 @@ install_poetry() {
   finish
 }
 
+install_black() {
+  # Install black
+  info "Installing black..."
+
+  pipx install black
+
+  finish
+}
+
 on_finish() {
   success "Done!"
   success "Python is installed!"
@@ -107,6 +116,7 @@ main() {
   install_pyenv "$*"
   install_pipx "$*"
   install_poetry "$*"
+  install_black "$*"
 }
 
 main "$*"
