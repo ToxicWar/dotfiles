@@ -10,6 +10,7 @@ export DOTFILES=${DOTFILES:="$HOME/.dotfiles"}
 cd $DOTFILES/scripts
 . ./brew.zsh
 . ./python.zsh
+. ./go.zsh
 . ./nodejs.zsh
 . ./vscode.zsh
 . ./macos.zsh

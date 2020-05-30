@@ -43,6 +43,11 @@ if _exists pyenv; then
   eval "$(pyenv init -)"
 fi
 
+# Go env
+if _exists go; then
+  export GOPATH="$HOME/.go"
+fi
+
 # Extend $NODE_PATH
 if [ -d ~/.npm-global ]; then
   export NODE_PATH="$NODE_PATH:$HOME/.npm-global/lib/node_modules"
