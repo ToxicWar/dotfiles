@@ -91,3 +91,6 @@
 
 [include]
   path = ~/.gitlocal
+
+[commit]
+	gpgsign = true
