@@ -12,4 +12,5 @@ cd $DOTFILES/scripts
 . ./python.zsh
 . ./nodejs.zsh
 . ./vscode.zsh
+. ./macos.zsh
 cd -
