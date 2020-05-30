@@ -154,6 +154,7 @@ main() {
   ## Languages
   code_install ms-python.python
   code_install mikestead.dotenv
+  code_install ms-vscode.go
 
   ## Theme and visual part
   code_install zhuangtongfa.Material-theme
