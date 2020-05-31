@@ -99,6 +99,15 @@ install_black() {
   finish
 }
 
+install_jupyterlab() {
+  # Install jupyterlab
+  info "Installing jupyterlab..."
+
+  pipx install jupyterlab
+
+  finish
+}
+
 on_finish() {
   success "Done!"
   success "Python is installed!"
@@ -117,6 +126,7 @@ main() {
   install_pipx "$*"
   install_poetry "$*"
   install_black "$*"
+  install_jupyterlab "$*"
 }
 
 main "$*"
