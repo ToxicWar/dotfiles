@@ -82,3 +82,6 @@ alias get="curl -O -L"
 if _exists tldr; then
   alias help="tldr"
 fi
+
+# Kubectl
+alias k='kubectl'
