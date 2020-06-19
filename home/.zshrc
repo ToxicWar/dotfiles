@@ -89,6 +89,9 @@ export SSH_KEY_PATH="$HOME/.ssh/id_rsa"
 # GPG
 export GPG_TTY=$(tty)
 
+# Some fixes
+ZSH_HIGHLIGHT_MAXLENGTH=200
+
 # ------------------------------------------------------------------------------
 # Dependencies
 # ------------------------------------------------------------------------------
@@ -131,7 +134,8 @@ if ! zplug check --verbose; then
   zplug install
 fi
 
+# For debug load zprof
+# zmodload zsh/zprof
+
 # Then, source plugins and add commands to $PATH
 zplug load
-
-ZSH_HIGHLIGHT_MAXLENGTH=200
