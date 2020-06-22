@@ -98,12 +98,9 @@ ZSH_HIGHLIGHT_MAXLENGTH=200
 # Oh-My-Zsh core
 # Unfortunately, zinit doesn't work with "*.zsh" for OMZ libs :\
 zinit for \
-    OMZL::bzr.zsh \
-    OMZL::cli.zsh \
     OMZL::clipboard.zsh \
     OMZL::compfix.zsh \
     OMZL::completion.zsh \
-    OMZL::correction.zsh \
     OMZL::directories.zsh \
     OMZL::functions.zsh \
     OMZL::git.zsh \
@@ -111,9 +108,6 @@ zinit for \
     OMZL::history.zsh \
     OMZL::key-bindings.zsh \
     OMZL::misc.zsh \
-    OMZL::nvm.zsh \
-    OMZL::prompt_info_functions.zsh \
-    OMZL::spectrum.zsh \
     OMZL::termsupport.zsh \
     OMZL::theme-and-appearance.zsh
 
