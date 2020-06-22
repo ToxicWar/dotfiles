@@ -13,8 +13,8 @@ _exists() {
 # Export path to root of dotfiles repo
 export DOTFILES=${DOTFILES:="$HOME/.dotfiles"}
 
-# Source zplug manager (https://github.com/zplug/zplug)
-source "$DOTFILES/modules/zplug/init.zsh"
+# Source zinit manager (https://github.com/zdharma/zinit)
+source "$DOTFILES/modules/zinit/zinit.zsh"
 
 # Locale
 export LC_ALL=en_US.UTF-8
@@ -36,7 +36,6 @@ _extend_path() {
 [[ -d "$DOTFILES/bin" ]] && _extend_path "$DOTFILES/bin"
 [[ -d "$HOME/.npm-global" ]] && _extend_path "$HOME/.npm-global/bin"
 [[ -d "$HOME/.local/bin" ]] && _extend_path "$HOME/.local/bin"
-[[ -d "$ZPLUG_BIN" ]] && _extend_path "$ZPLUG_BIN"
 
 # Pyenv init
 if _exists pyenv; then
@@ -96,46 +95,59 @@ ZSH_HIGHLIGHT_MAXLENGTH=200
 # Dependencies
 # ------------------------------------------------------------------------------
 
-# Let zplug manage itself like other packages
-zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-
 # Oh-My-Zsh core
-zplug "lib/*", from:oh-my-zsh
+# Unfortunately, zinit doesn't work with "*.zsh" for OMZ libs :\
+zinit for \
+    OMZL::bzr.zsh \
+    OMZL::cli.zsh \
+    OMZL::clipboard.zsh \
+    OMZL::compfix.zsh \
+    OMZL::completion.zsh \
+    OMZL::correction.zsh \
+    OMZL::directories.zsh \
+    OMZL::functions.zsh \
+    OMZL::git.zsh \
+    OMZL::grep.zsh \
+    OMZL::history.zsh \
+    OMZL::key-bindings.zsh \
+    OMZL::misc.zsh \
+    OMZL::nvm.zsh \
+    OMZL::prompt_info_functions.zsh \
+    OMZL::spectrum.zsh \
+    OMZL::termsupport.zsh \
+    OMZL::theme-and-appearance.zsh
 
 # Oh-My-Zsh plugins
-zplug "plugins/history-substring-search", from:oh-my-zsh
-zplug "plugins/git", from:oh-my-zsh
-zplug "plugins/sudo", from:oh-my-zsh
-zplug "plugins/extract", from:oh-my-zsh
-zplug "plugins/ssh-agent", from:oh-my-zsh
-zplug "plugins/gpg-agent", from:oh-my-zsh
+zinit wait lucid for \
+    OMZP::git \
+    OMZP::sudo \
+    OMZP::extract \
+    OMZP::ssh-agent \
+    OMZP::gpg-agent \
 
 # Zsh improvements
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-syntax-highlighting"
-zplug "hlissner/zsh-autopair", defer:2
+zinit for \
+    light-mode zsh-users/zsh-autosuggestions \
+    light-mode zsh-users/zsh-syntax-highlighting \
+    light-mode zsh-users/zsh-history-substring-search \
+    light-mode hlissner/zsh-autopair
 
 # Extra
-zplug "denysdovhan/gitio-zsh", as:command, use:"gitio.zsh", rename-to:"gitio"
-zplug "rauchg/wifi-password", as:command, use:"wifi-password.sh", rename-to:"wifi-password"
-zplug "djui/alias-tips", defer:2
+zinit ice as"command" mv"wifi-password.sh -> wifi-password"
+zinit light rauchg/wifi-password
+
+zinit wait lucid for \
+    light-mode djui/alias-tips
 
 # Spaceship ZSH
-zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+zinit light denysdovhan/spaceship-prompt
 
 # Dotfiles
-zplug "$DOTFILES/lib", from:local
+zinit load "$DOTFILES/lib"
 
 # Custom local overridings
-zplug "$DOTFILES/custom", from:local
+zinit load "$DOTFILES/custom"
 
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-  zplug install
-fi
-
-# For debug load zprof
-# zmodload zsh/zprof
-
-# Then, source plugins and add commands to $PATH
-zplug load
+# Autoload zsh completion
+autoload -Uz compinit
+compinit

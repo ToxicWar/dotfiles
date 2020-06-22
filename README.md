@@ -8,7 +8,7 @@ There are tons of useful things in here:
 - Syntax highlighting of commands while they are typed.
 - Automatically closing and deleting of quotes and brackets when you type them.
 - Browser-like substring search for history.
-- [🌺 zplug](https://zplug.sh) for dependency management.
+- [📦 zinit](https://github.com/zdharma/zinit) for dependency management.
 - Useful [aliases](https://github.com/toxicwar/dotfiles/tree/master/lib/aliases.zsh).
 - Git config, global `.gitignore` file and aliases.
 - VSCode settings [syncronization](https://github.com/toxicwar/dotfiles/tree/master/scripts/vscode.zsh).

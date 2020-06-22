@@ -59,15 +59,13 @@ update_dotfiles() {
   ./sync.py
   cd - > /dev/null 2>&1
 
-  info "Updating zplug packages..."
-  # Source zplug
-  source "$DOTFILES/modules/zplug/init.zsh"
+  info "Updating zinit packages..."
+  # Source zinit
+  source "$DOTFILES/modules/zinit/zinit.zsh"
   # Remove repositories which are no longer managed
-  zplug clean --force
-  # Remove the cache file
-  zplug clear
-  # Update installed packages in parallel
-  zplug update
+  zinit delete --clean
+  # Update installed packages
+  zinit update --all
 
   finish
 }
@@ -86,78 +84,6 @@ update_brew() {
   finish
 }
 
-update_apt_get() {
-  if ! _exists apt-get; then
-    return
-  fi
-
-  info "Updating Ubuntu and installed packages..."
-
-  sudo apt-get update
-  sudo apt-get upgrade -y
-  sudo apt-get autoremove -y
-  sudo apt-get autoclean -y
-
-  finish
-}
-
-update_npm() {
-  if ! _exists npm; then
-    return
-  fi
-
-  info "Updating NPM..."
-
-  NPM_PERMS="$(ls -l $(npm config get prefix)/bin \
-    | awk 'NR>1{print $3}' \
-    | grep "$(whoami)" \
-    | uniq)"
-
-  if [[ "$NPM_PERMS" == "$(whoami)" ]]; then
-    info "Permissions are fixed. Updating without sudo..."
-    npm install npm -g
-  else
-    error "Permissions needed!"
-    echo "Better to fix your permissions. Read more:"
-    echo "\t <https://docs.npmjs.com/getting-started/fixing-npm-permissions>"
-    echo
-    echo "The script will ask you the password for sudo:"
-    sudo npm install npm -g
-  fi
-
-  # Update packages with npm-check-updates
-  if _exists npx; then
-    npx ncu -g
-  fi
-
-  finish
-}
-
-update_gem() {
-  if ! _exists gem; then
-    return
-  fi
-
-  info "Updating Ruby gems..."
-
-  sudo -v
-  sudo gem update
-
-  finish
-}
-
-# Atom packages
-update_apm() {
-  if ! _exists apm; then
-    return
-  fi
-
-  info "Updating Atom packages..."
-
-  apm update --no-confirm
-
-  finish
-}
 
 on_finish() {
   success "Done!"
@@ -184,10 +110,6 @@ main() {
   on_start "$*"
   update_dotfiles "$*"
   update_brew "$*"
-  update_apt_get "$*"
-  update_npm "$*"
-  update_gem "$*"
-  update_apm "$*"
   on_finish "$*"
 }
 
