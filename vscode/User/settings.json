@@ -14,7 +14,6 @@
   "editor.semanticHighlighting.enabled": false,
   "workbench.colorTheme": "One Dark Pro",
   "workbench.editor.highlightModifiedTabs": true,
-  "window.zoomLevel": 1,
   "window.restoreFullscreen": true,
   "terminal.integrated.cursorBlinking": true,
   "breadcrumbs.enabled": true,
@@ -27,7 +26,38 @@
   "terminal.external.osxExec": "iTerm.app",
   "terminal.integrated.shell.osx": "/bin/zsh",
   "files.autoSave": "afterDelay",
+  "explorer.confirmDelete": false,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "python.languageServer": "Pylance",
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "redhat.telemetry.enabled": true,
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "editor.inlineSuggest.enabled": true,
+  "security.workspace.trust.untrustedFiles": "open",
   //
   // Plugins
   //
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": false,
+    "plaintext": false,
+    "markdown": false,
+    "python": false
+  },
+  "leetcode.defaultLanguage": "python3",
+  "leetcode.workspaceFolder": "/Users/antonlarkin/workspace/personal/leetcode",
+  "leetcode.filePath": {
+    "default": {
+      "folder": "",
+      "filename": "${id}.${kebab-case-name}.${ext}"
+    }
+  },
+  "leetcode.hint.commandShortcut": false,
+  "leetcode.hint.configWebviewMarkdown": false,
 }
