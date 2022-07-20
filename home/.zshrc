@@ -39,7 +39,7 @@ _extend_path() {
 
 # Pyenv init
 if _exists pyenv; then
-  eval "$(pyenv init -)"
+  eval "$(pyenv init --path)"
 fi
 
 # Go env
