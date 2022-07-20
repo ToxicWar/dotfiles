@@ -85,9 +85,6 @@ fi
 # SSH
 export SSH_KEY_PATH="$HOME/.ssh/id_rsa"
 
-# GPG
-export GPG_TTY=$(tty)
-
 # Some fixes
 ZSH_HIGHLIGHT_MAXLENGTH=200
 
@@ -117,7 +114,6 @@ zinit wait lucid for \
     OMZP::sudo \
     OMZP::extract \
     OMZP::ssh-agent \
-    OMZP::gpg-agent \
 
 # Zsh improvements
 zinit for \

@@ -104,7 +104,6 @@ main() {
   brew_install httpie
   brew_install neovim
   # Desktop applications
-  brew_install cask gpg-suite
   brew_install cask sublime-text
   brew_install cask clipy
   brew_install cask telegram
