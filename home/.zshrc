@@ -31,6 +31,9 @@ _extend_path() {
   fi
 }
 
+# Add Homebrew to PATH
+eval $(/opt/homebrew/bin/brew shellenv)
+
 # Add custom bin to $PATH
 [[ -d "$HOME/.bin" ]] && _extend_path "$HOME/.bin"
 [[ -d "$DOTFILES/bin" ]] && _extend_path "$DOTFILES/bin"
