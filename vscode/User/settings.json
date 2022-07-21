@@ -25,6 +25,7 @@
   },
   "terminal.external.osxExec": "iTerm.app",
   "terminal.integrated.shell.osx": "/bin/zsh",
+  "terminal.integrated.fontFamily": "Fira Code, 'Courier New', monospace",
   "files.autoSave": "afterDelay",
   "explorer.confirmDelete": false,
   "editor.suggestSelection": "first",
