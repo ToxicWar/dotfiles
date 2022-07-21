@@ -18,7 +18,7 @@ info() {
 }
 
 ask() {
-  printf "${YELLOW}${*}${RESET}"
+  printf "${YELLOW}${*} [y/N]: ${RESET}"
 }
 
 # Error reporter

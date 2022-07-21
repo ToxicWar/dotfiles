@@ -70,7 +70,7 @@ brew_install() {
 
   if [[ $cask == 'cask' ]]; then
     info "Installing $program with cask..."
-    brew cask install $program
+    brew install $program --cask
   else
     info "Installing $program..."
     brew install $program
@@ -112,6 +112,7 @@ main() {
   brew_install cask vlc
   brew_install cask iterm2
   brew_install cask visual-studio-code
+  brew_install cask docker
   # Fonts
   brew tap homebrew/cask-fonts
   brew_install cask font-fira-code

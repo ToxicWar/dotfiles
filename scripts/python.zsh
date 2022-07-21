@@ -18,7 +18,7 @@ info() {
 }
 
 ask() {
-  printf "${YELLOW}${*}${RESET}"
+  printf "${YELLOW}${*} [y/N]: ${RESET}"
 }
 
 # Error reporter
@@ -63,10 +63,10 @@ install_pyenv() {
 
   brew install pyenv
 
-  pyenv install 3.8.2
-  pyenv global 3.8.2
+  pyenv install 3.10.5
+  pyenv global 3.10.5
 
-  info "Activate python 3.8.2"
+  info "Activate python 3.10.5"
   eval "$(pyenv init -)"
 
   finish
@@ -85,7 +85,7 @@ install_poetry() {
   # Install poetry
   info "Installing poetry..."
 
-  pipx install poetry==1.0.5
+  pipx install poetry==1.1.14
 
   finish
 }
