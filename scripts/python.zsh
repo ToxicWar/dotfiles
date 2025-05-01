@@ -63,10 +63,10 @@ install_pyenv() {
 
   brew install pyenv
 
-  pyenv install 3.10.5
-  pyenv global 3.10.5
+  pyenv install 3.12.10
+  pyenv global 3.12.10
 
-  info "Activate python 3.10.5"
+  info "Activate python 3.12.10"
   eval "$(pyenv init -)"
 
   finish
@@ -81,11 +81,11 @@ install_pipx() {
   finish
 }
 
-install_poetry() {
-  # Install poetry
-  info "Installing poetry..."
+install_uv() {
+  # Install uv
+  info "Installing uv..."
 
-  pipx install poetry==1.1.14
+  pipx install uv
 
   finish
 }
@@ -99,11 +99,11 @@ install_black() {
   finish
 }
 
-install_jupyterlab() {
-  # Install jupyterlab
-  info "Installing jupyterlab..."
+install_ruff() {
+  # Install ruff
+  info "Installing ruff..."
 
-  pipx install jupyterlab
+  pipx install ruff
 
   finish
 }
@@ -124,9 +124,9 @@ main() {
   on_start "$*"
   install_pyenv "$*"
   install_pipx "$*"
-  install_poetry "$*"
+  install_uv "$*"
   install_black "$*"
-  install_jupyterlab "$*"
+  install_ruff "$*"
 }
 
 main "$*"
